@@ -1,42 +1,53 @@
-<h1>Burgers!</h1>
+  <h1>Eat-Da-Burgers!</h1>
+<div  class="container" class="text-center">
+  <img class="center-block" id="burger_pic" src="../assets/images/burger.png" alt="Hamburger">
+</div>
 
-<h2>Burgers that have not been devoured!</h2>
+<div class="container">
+<div class="row">
+  <div id="new_burger_field" class="col-md-6">
+      <h3>Burgers that I want to devour!</h3>
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-    <li>
-  		<p><span class="label">ID:</span> {{this.id}}</p>
-      <p><span class="label">Burger:</span> {{this.burger_name}}</p>
-  	</li>
-      	<button class="change-devoured" data-id="{{id}}" data-devoured="{{devoured}}">DEVOUR!</button>
-    {{/unless}}
-  {{/each}}
-</ul>
+      <ul>
+        {{#each burgers}}
+          {{#unless devoured}}
+          <li>
+            <h4 class="burger_name_field">ID: {{this.id}} {{this.burger_name}}
+              <button class="change-devoured btn-warning btn-sm" data-id="{{id}}" data-devoured="{{devoured}}">DEVOUR!</button>
+              </h4>
+          </li>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
 
+  <div id="devoured_field" class="col-md-6">
+      <h3>Burgers that have been devoured!</h3>
+        <ul>
+          {{#each burgers}}
+            {{#if devoured}}
+            <li>
+              <h4 class="burger_name_field">ID: {{this.id}} {{this.burger_name}}</h4>
+            </li>
+            {{/if}}
+          {{/each}}
+        </ul>
+  </div>
+</div>
+</div>
 
-<h2>Burgers that have been devoured!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-    <li>
-  		<p><span class="label">ID:</span> {{this.id}}</p>
-      <p><span class="label">Burger:</span> {{this.burger_name}}</p>
-  	</li>
-    {{/if}}
-  {{/each}}
-</ul>
+<div class="container center-block col-md-6">
 
 <h2>Add a Burger</h2>
 <form class="create-form">
 
   <div class="form-group">
-    <label for="add">Burger Name:</label>
-    <input type="text" id="add" name="name">
+    <label for="add">Burger Name: Enter the name of a burger you want to eat and click submit</label>
+    <input class="form-control input-sm col-md-6 center-block" type="text" id="add" name="name">
   </div>
 
 
-  <button type="submit" name="add">Submit</button>
-  <p>Enter a burger you want to eat and click the submit button</p>
+  <button class="btn-warning btn-lg" type="submit" name="add">Submit</button>
+  {{!-- <p>Enter a burger you want to eat and click the submit button</p> --}}
 </form>
+</div>
