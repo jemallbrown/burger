@@ -18,3 +18,7 @@ input {
 h1{
 	text-align: center;
 }
+
+#burger_page_field{
+    background-color: rgb(192, 136, 52);
+}
